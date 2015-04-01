@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="info.blueye.startservice" >
+
+    <permission android:name="info.blueye.startservice.permission.START_MYSERVICE"/>
+    <permission android:name="info.blueye.startservice.permission.CALL_HELLO"/>
+    <uses-permission android:name="info.blueye.startservice.permission.CALL_HELLO"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="info.blueye.startservice.permission.START_MYSERVICE">
+
+            <intent-filter>
+                <action android:name="info.blueye.startservice.action.MyService"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
